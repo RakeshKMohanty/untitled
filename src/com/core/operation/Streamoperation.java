@@ -1,6 +1,7 @@
 package com.core.operation;
 
 import com.core.repository.Personrepository;
+import com.core.vo.Department;
 import com.core.vo.Employee;
 import com.core.vo.Person;
 
@@ -127,7 +128,28 @@ public class Streamoperation implements Comparator<Person> {
                         collect(Collectors.toList()).
                         forEach(System.out::println);
 
+       List<Employee> employeelist = Personrepository.getListOfEmployee();
+       doGroup(employeelist);
+       //System.out.println("employee list by department group : "+
+        Map<String, Integer> collect =
+        employeelist.stream().collect(
+                groupingBy(employee -> employee.getDepartmentList().getDepartmentname(),summingInt(Employee::getNoofleaves)
+                        //mapping(Employee::getNoofleaves, toList())
+                        ));
+        //System.out.println( collect.values().stream().map(employees -> employees.stream().count()));
+        //collect.entrySet().iterator();
+        //while (collect.)
+        collect.forEach((s, employees) -> System.out.println("Key : "+s+ " ,Values : "+employees));
+        //.collect(Collectors.groupingBy(employee -> employee.getDepartmentList().getDepartmentname())));
+    }
 
+    private void doGroup(List<Employee> employeelist) {
+
+        System.out.println("Employee with department ");
+
+        System.out.println(employeelist.stream().collect(
+                Collectors.toMap(Employee::getId,employee->{return employee.getDepartmentList();})
+        ));
     }
 
     private Integer getValue() {
@@ -135,5 +157,6 @@ public class Streamoperation implements Comparator<Person> {
         return 2;
     }
 
-
+    public void groupPersonistbyName(){
+    }
 }

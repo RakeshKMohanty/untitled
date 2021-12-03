@@ -6,6 +6,43 @@ public class Employee {
 
    private int id;
    private String name;
+   private int noofleaves;
+   Department departmentList;
+
+   @Override
+   public String toString() {
+      return "Employee{" +
+              "id=" + id +
+              ", name='" + name + '\'' +
+              ", noofleaves='" + noofleaves + '\'' +
+              ", departmentList=" + departmentList +
+              '}';
+   }
+
+   public Employee(int id, String name, int noofleaves, Department departmentList) {
+      this.id = id;
+      this.name = name;
+      this.noofleaves = noofleaves;
+      this.departmentList = departmentList;
+   }
+
+   public int getNoofleaves() {
+      return noofleaves;
+   }
+
+   public void setNoofleaves(int noofleaves) {
+      this.noofleaves = noofleaves;
+   }
+
+   public Department getDepartmentList() {
+      return departmentList;
+   }
+
+   public void setDepartmentList(Department departmentList) {
+      this.departmentList = departmentList;
+   }
+
+
 
    public int getId() {
       return id;
@@ -23,7 +60,7 @@ public class Employee {
       this.name = name;
    }
 
-   public String getCompany() {
+   /*public String getCompany() {
       return company;
    }
 
@@ -45,19 +82,19 @@ public class Employee {
 
    public void setDepartmenString(String departmenString) {
       this.departmenString = departmenString;
-   }
+   }*/
 
-   private String company;
-   private List<Adress> addresList;
-   private String departmenString;
+   //private String company;
+   //private List<Adress> addresList;
+   //private String departmenString;
 
-   public Employee(int id, String name, String company, List<Adress> addresList, String departmenString) {
+   /*public Employee(int id, String name, String company, List<Adress> addresList, String departmenString) {
       this.id = id;
       this.name = name;
       this.company = company;
       this.addresList = addresList;
       this.departmenString = departmenString;
-   }
+   }*/
 
 
 

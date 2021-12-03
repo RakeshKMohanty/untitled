@@ -1,5 +1,7 @@
 package com.core.repository;
 
+import com.core.vo.Department;
+import com.core.vo.Employee;
 import com.core.vo.Person;
 
 import java.util.List;
@@ -21,6 +23,19 @@ public class Personrepository {
                 new Person("Mahesh", "jena", 33));
         return personList;
 
+
+    }
+
+    public static List<Employee> getListOfEmployee(){
+        List<Employee> employeelist = List.of(
+                new Employee(1,"Rakesh",4,new Department(11,"East","IT")),
+                new Employee(2,"Jagruti",2,new Department(22,"west","Admin")),
+                new Employee(3,"Goutam",3,new Department(33,"South","Test")),
+                new Employee(4,"Param",2,new Department(44,"north","IT")),
+                new Employee(5,"Goutam",3,new Department(55,"South","Test")),
+                new Employee(6,"Nehal",3,new Department(66,"South","IT"))
+        );
+        return employeelist;
     }
 
 }

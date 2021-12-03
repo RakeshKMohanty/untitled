@@ -1,5 +1,9 @@
 package com.core.operation;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class Listimplementation {
 
     /*public Node node;
@@ -26,6 +30,10 @@ public class Listimplementation {
         //System.out.println();
         mylistimplement.print("List after deleting at position : ");
 
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        System.out.println(dateFormat.format(cal.getTime()));
+        //System.out.println( System.currentTimeMillis() );
 
     }
 }
