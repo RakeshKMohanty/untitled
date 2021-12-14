@@ -8,7 +8,7 @@ public class Multidemo {
         multidemo.mainThread();
 
         Thrddemo thd = new Thrddemo();
-        //Thread thread = new Thread(() -> System.out.println("Inside the thread"));
+        Thread thread = new Thread(() -> System.out.println("Inside the thread"));
         Thread thread1 = new Thread(thd);
         thread1.start();
         thread1.setName("Child Thread");
