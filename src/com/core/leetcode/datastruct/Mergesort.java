@@ -1,4 +1,4 @@
-/*
+
 package com.core.leetcode.datastruct;
 
 import java.util.Arrays;
@@ -36,9 +36,9 @@ finally {
         //return returnvalue;
     }
 
-    private static int mergeSort(int input[]) {
-
-    }
+   /* private static int mergeSort(int input[]) {
+    return 0;
+    }*/
 
     private static void mergeSort(int input[]) {
 
@@ -89,4 +89,4 @@ finally {
     }
 
 }
-*/
+
