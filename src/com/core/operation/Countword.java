@@ -1,5 +1,9 @@
 package com.core.operation;
 
+import java.util.Collections;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 public class Countword {
 
     static  String input = "aaaabbcccddddddaa";
@@ -18,7 +22,9 @@ public class Countword {
                 result = result + counter + input.charAt(i) ;
                 counter = 1;
             }
+            //Collections.sort();
         }
         System.out.println(result);
+       // input.chars().mapToObj(value -> (char) value)
     }
 }
