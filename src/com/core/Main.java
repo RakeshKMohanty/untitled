@@ -8,33 +8,43 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
-  
     public static void main(String[] args) {
-
-       List<Employee> employeeList = new ArrayList<>();
-
-       employeeList.add(new Employee(1,100000,30));
-        employeeList.add(new Employee(2,50000,25));
-        employeeList.add(new Employee(3,40000,15));
-        employeeList.add(new Employee(4,120000,10));
-        employeeList.add(new Employee(5,120000,5));
-      //  employeeList.add(new Employee(6,1000));
-
-      // employeeList.stream().sorted(Comparator.comparingInt(Employee::getSalary)).forEach(System.out::println);
-       employeeList.stream().sorted(Comparator.comparing(Employee::getSalary).thenComparing(Employee::getAge)).forEach(System.out::println);
-
-       //employeeList.stream().collect(Collectors.groupingBy(Employee::Salary,C))
-
-
-
+        String input = "aabcccccaaa";
+        //op : a2b1c5a3
+        System.out.println(getFrequencyOfCharachter(input));
+        getFrequencyOfCharachter2(input);
     }
 
+    private static void getFrequencyOfCharachter2(String input) {
+        input.chars().mapToObj(value -> (char)value)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .forEach((key, value) -> {
+                    System.out.println("key : "+key+" value : "+value);
+                } );
+    }
 
+    private static String getFrequencyOfCharachter(String input) {
+        String output = "";
+        for (int i = 0; i <= input.length() - 1; i++) {
+            output = output + input.charAt(i);
+            int count = 1;
+            for (int j = i + 1; j <= input.length() - 1; j++) {
+                if (input.charAt(i) != input.charAt(j)) {
+                    i = j - 1;
+                    break;
+                } else {
+                    i = j;
+                    count++;
+                }
+            }
+            output = output + count;
+        }
+        return output;
+    }
 }
